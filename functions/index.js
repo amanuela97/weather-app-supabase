@@ -56,8 +56,12 @@ async function handleTask(profiles) {
 
   profiles.forEach( async (profile) => {
     const { email , user_name: displayName , location } = profile
-    const weather = await getWeather(location)
-    if(!weather) return
+    // get_weather function defined in supabase dashboard
+    const { data: weather, error } = await supabase.rpc('get_weather', { location })
+    if(error || !weather){
+      console.log(error?.message)
+      return
+    }
     const job = await sendEmail(email, displayName, weather)
     jobs.push(job)
   })
@@ -86,28 +90,11 @@ async function sendEmail(email, displayName, weather) {
     `
   return await mailTransport.sendMail(mailOptions , (error, info) => {
     if (error) {
-      return console.log(error)
+      return console.log(error.message)
     }
     console.log('Message sent: %s', info.messageId)
     functions.logger.log('New weather update sent to:', email)
   })
 }
 
-async function getWeather(location) {
-  const url =  `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/tomorrow?unitGroup=metric&include=current%2Cdays&key=${functions.config().visualcrossing.key}&contentType=json`
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  }
-  try {
-    const response = await fetch(url, options)
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.log(error , 'errr')
-    return false
-  }
-}
 
