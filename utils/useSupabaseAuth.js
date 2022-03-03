@@ -142,22 +142,24 @@ export default function useSupabaseAuth() {
   const deleteAccount = async () => {
     try {
       const { data:list } = await supabase.storage.from('avatars').list(`${authUser.uid}`)
-      const filesToRemove = list.map((x) => `${authUser.uid}/${x.name}`)
-      const { error } = await supabase.storage.from('avatars').remove(filesToRemove)
+      if(list && list.length > 0){
+        const filesToRemove = list.map((x) => `${authUser.uid}/${x.name}`)
+        const { error } = await supabase.storage.from('avatars').remove(filesToRemove)
 
-      if(error) throw error
+        if(error) throw error
+      }
 
       const response = await fetch(`/api/delete/${authUser.uid}`, {
         method: 'DELETE'
       })
       const data = await response.json()
       if(data?.error) {
-        alert(data?.error)
+        alert(JSON.stringify(data?.error.message))
       }else {
         clear()
       }
     } catch (error) {
-      alert(error)
+      alert(JSON.stringify(error.message))
     }
 
   }

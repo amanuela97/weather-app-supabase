@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="text-white bg-gray-500">
       <div className="container pt-9">
         <div className="flex justify-center mb-9">
-          <a href="https://github.com/amanuela97/weather-app" className="text-gray-800">
+          <a href="https://github.com/amanuela97/weather-app-supabase" className="text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
