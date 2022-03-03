@@ -1,6 +1,6 @@
 ## Weather-App
 
-- [weather-app](https://weather-app-76d35.web.app/)
+- [weather-app-supabase](https://weathe-app-supabase.netlify.app/)
 
 ## Technologies used
 

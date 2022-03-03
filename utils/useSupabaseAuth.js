@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
+import { supabase } from './supabaseClient'
 
 
 const formatAuthUser = (user) => ({
@@ -8,7 +8,7 @@ const formatAuthUser = (user) => ({
   providerId: user.identities[0].provider || null,
 })
 
-export default function useFirebaseAuth() {
+export default function useSupabaseAuth() {
   const [authUser, setAuthUser] = useState(null)
   const [loading, setLoading] = useState(true)
 

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import useFirebaseAuth from './useFirebaseAuth'
+import useSupabaseAuth from './useSupabaseAuth'
 
 const authUserContext = createContext({
   authUser: null,
@@ -17,7 +17,7 @@ const authUserContext = createContext({
 })
 
 export function AuthUserProvider({ children }) {
-  const auth = useFirebaseAuth()
+  const auth = useSupabaseAuth()
   return <authUserContext.Provider value={auth}>{children}</authUserContext.Provider>
 }
 // custom hook to use the authUserContext and access authUser and loading
