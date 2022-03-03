@@ -7,7 +7,7 @@
 - [Next.js](https://nuxtjs.org) - The React Framework for Production
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
 - [supabase](https://firebase.google.com/) – Supabase is an open source Firebase alternative.
-    It provides all the backend services you need to build a product. database, authentication, cloud functions, and hosting.
+    It provides all the backend services you need to build a product.
 - [TailwindUI](https://tailwindui.com/) – Beautiful UI components, crafted with Tailwind CSS.
 - [React-google-autocomplete](https://www.npmjs.com/package/react-google-autocomplete) – google autcomplete library for react.
 
@@ -16,12 +16,6 @@
 1. Go to [Supabase](https://supabase.com/docs/) follow the section "project setup" from the following next js guideline.
 2. Get all the required keys defined in .env.example file from the supabase setting dashboard
 3. install the client library with `npm install @supabase/supabase-js`
-
-## Additional info
-
-- follow guide for hosting on firebase [hosting](https://firebase.google.com/docs/hosting/quickstart)
-
-- firebase /functions uses node -v 14
 
 
 ## Run locally
