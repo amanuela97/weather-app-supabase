@@ -18,6 +18,11 @@
 3. install the client library with `npm install @supabase/supabase-js`
 
 
+## Deploy
+
+1. Instructions on how to deploy with netlify - [Netlify](https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/)
+2. How to set environment variables from netlify cli - [ENV-Variables](https://www.netlify.com/blog/2021/07/12/managing-environment-variables-from-your-terminal-with-netlify-cli/)
+
 ## Run locally
 
 1. [Install nvm](https://github.com/nvm-sh/nvm)
