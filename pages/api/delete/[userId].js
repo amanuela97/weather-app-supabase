@@ -1,4 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { createClient } from '@supabase/supabase-js';
+
 const supabaseAdmin = createClient(supabaseUrl, process.env.SERVICE_ROLE);
 
 export default async function handler(req, res) {
